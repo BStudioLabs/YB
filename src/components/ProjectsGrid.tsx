@@ -4,10 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
-import { categories, projects, type ProjectCategory } from "@/data/projects";
+import { categories, type Project, type ProjectCategory } from "@/data/projects";
 
-/** Filterable project grid — shared by the home section and the /work page. */
-export default function ProjectsGrid() {
+/** Filterable project grid — shared by the home section and the /work page.
+ *  Receives projects from a server component (Supabase or local fallback). */
+export default function ProjectsGrid({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<ProjectCategory | "all">("all");
   const visible =
     filter === "all" ? projects : projects.filter((p) => p.category === filter);

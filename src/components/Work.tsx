@@ -1,7 +1,9 @@
 import Reveal from "@/components/Reveal";
 import ProjectsGrid from "@/components/ProjectsGrid";
+import { getProjects } from "@/lib/db";
 
-export default function Work() {
+export default async function Work() {
+  const projects = await getProjects();
   return (
     <section
       id="work"
@@ -18,7 +20,7 @@ export default function Work() {
             Projects<span className="dot">.</span>
           </h2>
         </Reveal>
-        <ProjectsGrid />
+        <ProjectsGrid projects={projects} />
       </div>
     </section>
   );

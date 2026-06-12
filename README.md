@@ -14,14 +14,30 @@ npm run dev        # http://localhost:3000
 The site works out of the box — without Supabase configured, contact-form
 submissions are accepted but not stored (a warning is logged server-side).
 
-## Wire up Supabase (contact form)
+## Database (Supabase)
+
+The site has a full content database. Until it's configured, pages render from
+the local files in `src/data/` — the DB is a drop-in upgrade, not a requirement.
+
+**Tables:** `projects` (case studies), `services` (capability cards),
+`contact_messages` (form inbox). Published content is publicly readable via the
+anon key under RLS; contact messages are service-role only.
+
+Setup:
 
 1. Create a project at [supabase.com](https://supabase.com).
-2. In the SQL editor, run `supabase/schema.sql` (creates `contact_messages`, RLS locked — only the service role can touch it).
-3. Copy `.env.example` to `.env.local` and fill in:
-   - `NEXT_PUBLIC_SUPABASE_URL` — Project Settings → API → Project URL
-   - `SUPABASE_SERVICE_ROLE_KEY` — Project Settings → API → service_role key (**server-only secret**)
-4. Restart the dev server. Submissions now land in the `contact_messages` table.
+2. In the SQL editor, run `supabase/schema.sql`, then `supabase/seed.sql`
+   (seeds the current site content; both are safe to re-run).
+3. Copy `.env.example` to `.env.local` and fill in from Project Settings → API:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY` (**server-only secret** — powers `/api/contact`)
+4. Restart the dev server.
+
+From then on: edit projects/services in the Supabase table editor and the site
+picks it up (pages revalidate hourly in production; instantly in dev). Set
+`published = false` to hide a row, `sort_order` to reorder. Contact-form
+submissions land in `contact_messages`.
 
 ## Deploy (Vercel)
 
@@ -62,6 +78,20 @@ src/
   lib/supabase.ts         # server-only Supabase client (null-safe when unconfigured)
 supabase/schema.sql       # run once in your Supabase project
 ```
+
+## Admin dashboard
+
+`/admin` — password-protected content manager (password = `ADMIN_PASSWORD` in
+`.env.local`; sessions are signed HttpOnly cookies, valid one week).
+
+- **Projects** — create, edit, delete, publish/unpublish, reorder. The
+  problem/solution fields accept **markdown** (bold, lists, links, code…),
+  rendered on the case-study pages.
+- **Services** — edit the four capability cards.
+- **Inbox** — read contact-form messages, mark handled, delete.
+
+All writes go through server actions using the service-role key; nothing
+admin-related is exposed to the browser. The admin routes are `noindex`.
 
 ## Easter eggs
 

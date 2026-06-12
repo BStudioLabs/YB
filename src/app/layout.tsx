@@ -2,11 +2,6 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
-import Cursor from "@/components/Cursor";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Terminal from "@/components/Terminal";
-import ScrollToTop from "@/components/ScrollToTop";
 
 const head = Space_Grotesk({
   subsets: ["latin"],
@@ -47,12 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${head.variable} ${body.variable} ${code.variable}`}>
-        <ScrollToTop />
-        <Cursor />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <Terminal />
+        {children}
       </body>
     </html>
   );

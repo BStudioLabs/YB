@@ -1,7 +1,8 @@
 import Reveal from "@/components/Reveal";
-import { services } from "@/data/services";
+import { getServices } from "@/lib/db";
 
-export default function Services() {
+export default async function Services() {
+  const services = await getServices();
   return (
     <section id="services">
       <div className="wrap">

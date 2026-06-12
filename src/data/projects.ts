@@ -137,14 +137,3 @@ export const projects: Project[] = [
   },
 ];
 
-export function getProject(slug: string) {
-  return projects.find((p) => p.slug === slug);
-}
-
-export function adjacentProjects(slug: string) {
-  const i = projects.findIndex((p) => p.slug === slug);
-  return {
-    prev: projects[(i - 1 + projects.length) % projects.length],
-    next: projects[(i + 1) % projects.length],
-  };
-}

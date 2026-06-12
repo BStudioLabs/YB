@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import HeroCanvas from "@/components/HeroCanvas";
+import HeroVideo from "@/components/HeroVideo";
 import { site } from "@/data/site";
 
 const CHARS = "█▓▒░<>/\\|#&@01";
@@ -58,7 +58,7 @@ export default function Hero() {
 
   return (
     <section className="hero" id="top">
-      <HeroCanvas />
+      <HeroVideo />
       <div className="wrap">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
