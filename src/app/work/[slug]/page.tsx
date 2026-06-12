@@ -36,6 +36,13 @@ export default async function CaseStudy({ params }: Props) {
         <div className="case-hero">
           <div className="wrap">
             <Reveal>
+              <Link
+                href="/work"
+                className="more"
+                style={{ marginBottom: 28, display: "inline-flex" }}
+              >
+                <i>←</i> All projects
+              </Link>
               <div className="lab">
                 Case study — {project.category} / {project.year}
               </div>
