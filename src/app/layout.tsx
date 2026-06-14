@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { site } from "@/data/site";
 
@@ -43,6 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${head.variable} ${body.variable} ${code.variable}`}>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
