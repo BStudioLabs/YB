@@ -399,6 +399,22 @@ body.menu-open .burger span:nth-child(3) {
   -webkit-text-stroke: 0;
   font-weight: inherit;
 }
+/* Each glitch glyph reserves the width of its final letter (invisible) and
+   overlays the glitch character on top, so the heading never reflows. */
+.glitch-ch {
+  position: relative;
+  display: inline-block;
+}
+.glitch-ch-w {
+  visibility: hidden;
+}
+.glitch-ch-g {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .tag {
   max-width: 560px;
   color: var(--mut);
