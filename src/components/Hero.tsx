@@ -92,7 +92,13 @@ export default function Hero() {
     <section className="hero" id="top">
       <div className="wrap">
         <h1 className="hero-h" aria-label="We build the web. We secure it.">
-          <span aria-hidden="true">{l1.text || " "}</span>
+          <span aria-hidden="true">
+            <ScrambleText
+              finalText="WE BUILD THE WEB."
+              text={l1.text}
+              settled={l1.settled}
+            />
+          </span>
           <br />
           <span className="l2" aria-hidden="true">
             {l2.done ? (
@@ -100,7 +106,11 @@ export default function Hero() {
                 WE SECURE IT<b>.</b>
               </>
             ) : (
-              l2.text || " "
+              <ScrambleText
+                finalText="WE SECURE IT."
+                text={l2.text}
+                settled={l2.settled}
+              />
             )}
           </span>
         </h1>
