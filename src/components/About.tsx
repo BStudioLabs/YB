@@ -1,6 +1,6 @@
 import Reveal from "@/components/Reveal";
 import Stats from "@/components/Stats";
-import { skills, team } from "@/data/site";
+import { skills } from "@/data/site";
 
 export default function About() {
   return (
@@ -44,22 +44,6 @@ export default function About() {
               </div>
             </div>
           </Reveal>
-        </div>
-        <div className="team-grid">
-          {team.map((m, i) => (
-            <Reveal key={m.name + i} delay={0.08 * i}>
-              <div className="team-card">
-                <div className="team-avatar">
-                  <b>{m.initials}</b>
-                </div>
-                <div className="team-meta">
-                  <h3>{m.name}</h3>
-                  <span className="team-role">{m.role}</span>
-                  <span className="team-focus">{m.focus}</span>
-                </div>
-              </div>
-            </Reveal>
-          ))}
         </div>
       </div>
     </section>
