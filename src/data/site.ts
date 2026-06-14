@@ -37,6 +37,28 @@ export const stats = [
   { value: 120, label: "Vulns reported" },
 ];
 
+// Edit names/roles to match the real studio. `initials` shows in the card avatar.
+export const team = [
+  {
+    name: "Youssef Baaziz",
+    role: "Founder · Full-Stack & Security",
+    initials: "YB",
+    focus: "Web · AppSec",
+  },
+  {
+    name: "New Member",
+    role: "Product Designer",
+    initials: "—",
+    focus: "UI/UX · Brand",
+  },
+  {
+    name: "New Member",
+    role: "Backend Engineer",
+    initials: "—",
+    focus: "Systems · DevOps",
+  },
+];
+
 export const skills = [
   "TypeScript",
   "React / Next.js",
