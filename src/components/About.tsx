@@ -1,6 +1,6 @@
 import Reveal from "@/components/Reveal";
 import Stats from "@/components/Stats";
-import { site, skills } from "@/data/site";
+import { skills } from "@/data/site";
 
 export default function About() {
   return (
@@ -21,19 +21,19 @@ export default function About() {
           <Reveal delay={0.1}>
             <div className="story">
               <p>
-                <strong>{site.owner}</strong> — developer and security-minded
-                builder from Morocco. Y/B started from a simple irritation: the
-                web is full of beautiful sites that leak data, and bulletproof
-                systems nobody wants to use.
+                <strong>Y/B</strong> is a studio of developers and
+                security-minded builders based in Morocco. We started from a
+                simple irritation: the web is full of beautiful sites that leak
+                data, and bulletproof systems nobody wants to use.
               </p>
               <p>
-                So the studio does both jobs at once. Every project is{" "}
+                So we do both jobs at once. Every project is{" "}
                 <strong>built like a product and audited like a target</strong>{" "}
                 — performance budgets, threat models, and typography all get
                 the same obsession.
               </p>
               <p>
-                The name is just the initials. The lime dot is the promise:{" "}
+                The lime dot is the promise:{" "}
                 <strong>nothing ships unfinished.</strong>
               </p>
               <Stats />

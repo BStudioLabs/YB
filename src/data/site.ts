@@ -1,7 +1,7 @@
 export const site = {
   name: "Y/B",
   owner: "Youssef Baaziz",
-  email: "ybaaziz867@gmail.com",
+  email: "YBofficial@proton.me",
   location: "Casablanca, MA",
   tagline: "We build the web. We secure it.",
   description:
@@ -20,7 +20,7 @@ export const socials = [
   { label: "GitHub", href: "https://github.com/", mark: "↗" },
   { label: "LinkedIn", href: "https://linkedin.com/", mark: "↗" },
   { label: "X", href: "https://x.com/", mark: "↗" },
-  { label: "Email", href: "mailto:ybaaziz867@gmail.com", mark: "@" },
+  { label: "Email", href: "mailto:YBofficial@proton.me", mark: "@" },
 ];
 
 export const marqueeWords = [
