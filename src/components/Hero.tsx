@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { site } from "@/data/site";
 
 const CHARS = "█▓▒░<>/\\|#&@01";
 const FRAMES = 26;
@@ -120,9 +119,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
         >
-          Y/B is the studio of <strong>{site.owner}</strong> — websites, secure
-          systems and digital products engineered with the paranoia of a
-          security firm and the taste of a design studio.
+          <strong>Y/B</strong> is a digital studio — websites, secure systems
+          and digital products engineered with the paranoia of a security firm
+          and the taste of a design studio.
         </motion.p>
         <motion.div
           className="cta"

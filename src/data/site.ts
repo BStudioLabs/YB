@@ -5,7 +5,7 @@ export const site = {
   location: "Casablanca, MA",
   tagline: "We build the web. We secure it.",
   description:
-    "Y/B is the studio of Youssef Baaziz — websites, secure systems and digital products engineered with the paranoia of a security firm and the taste of a design studio.",
+    "Y/B is a digital studio — websites, secure systems and digital products engineered with the paranoia of a security firm and the taste of a design studio.",
   url: "https://yb-agency.vercel.app", // ← set your real domain before launch
 };
 
