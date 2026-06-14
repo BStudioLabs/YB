@@ -17,7 +17,7 @@ export const navLinks = [
 ];
 
 export const socials = [
-  { label: "GitHub", href: "https://github.com/", mark: "↗" },
+  { label: "GitHub", href: "https://github.com/BStudioLabs", mark: "↗" },
   { label: "LinkedIn", href: "https://linkedin.com/", mark: "↗" },
   { label: "X", href: "https://x.com/", mark: "↗" },
   { label: "Email", href: "mailto:YBofficial@proton.me", mark: "@" },
