@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import HeroVideo from "@/components/HeroVideo";
 import { site } from "@/data/site";
 
 const CHARS = "█▓▒░<>/\\|#&@01";
@@ -91,16 +90,7 @@ export default function Hero() {
 
   return (
     <section className="hero" id="top">
-      <HeroVideo />
       <div className="wrap">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="status"
-        >
-          <i /> All systems operational — {site.location}
-        </motion.div>
         <h1 className="hero-h" aria-label="We build the web. We secure it.">
           <span aria-hidden="true">{l1.text || " "}</span>
           <br />
