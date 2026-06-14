@@ -68,13 +68,24 @@ export default async function CaseStudy({ params }: Props) {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <div
-                className="case-cover"
-                role="img"
-                aria-label={`${project.title} cover placeholder`}
-              >
-                <b>{String(index + 1).padStart(2, "0")}</b>
-              </div>
+              {project.image_url ? (
+                <div className="case-cover has-img">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    className="cover-img"
+                    src={project.image_url}
+                    alt={`${project.title} cover`}
+                  />
+                </div>
+              ) : (
+                <div
+                  className="case-cover"
+                  role="img"
+                  aria-label={`${project.title} cover placeholder`}
+                >
+                  <b>{String(index + 1).padStart(2, "0")}</b>
+                </div>
+              )}
             </Reveal>
           </div>
         </div>

@@ -74,6 +74,7 @@ export async function saveProject(formData: FormData) {
     solution: String(formData.get("solution") ?? "").trim(),
     stack: splitList(String(formData.get("stack") ?? ""), /,/),
     results: splitList(String(formData.get("results") ?? ""), /\r?\n/),
+    image_url: String(formData.get("image_url") ?? "").trim() || null,
     sort_order: Number(formData.get("sort_order") ?? 0) || 0,
     published: formData.get("published") === "on",
   };

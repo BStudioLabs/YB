@@ -38,6 +38,7 @@ create table if not exists public.projects (
   solution    text not null,
   stack       text[] not null default '{}',
   results     text[] not null default '{}',
+  image_url   text, -- cover image; any public URL (e.g. Supabase Storage)
   sort_order  integer not null default 0,
   published   boolean not null default true,
   created_at  timestamptz not null default now(),

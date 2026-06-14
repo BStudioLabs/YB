@@ -12,6 +12,7 @@ export interface ProjectFormData {
   solution: string;
   stack: string[];
   results: string[];
+  image_url?: string | null;
   sort_order: number;
   published: boolean;
 }
@@ -58,6 +59,17 @@ export default function ProjectForm({ project }: { project?: ProjectFormData }) 
       <div className="row">
         <label htmlFor="p-stack">Tech stack (comma-separated)</label>
         <input id="p-stack" name="stack" defaultValue={project?.stack.join(", ")} />
+      </div>
+
+      <div className="row full">
+        <label htmlFor="p-image">Cover image URL</label>
+        <input
+          id="p-image"
+          name="image_url"
+          type="url"
+          placeholder="https://…  (e.g. a Supabase Storage public URL)"
+          defaultValue={project?.image_url ?? ""}
+        />
       </div>
 
       <div className="row full">

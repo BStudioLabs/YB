@@ -11,6 +11,7 @@ export interface Project {
   solution: string;
   stack: string[];
   results: string[];
+  image_url?: string | null;
 }
 
 export const categories: { id: ProjectCategory | "all"; label: string }[] = [

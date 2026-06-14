@@ -7,7 +7,7 @@ export default function About() {
     <section id="about">
       <div className="wrap">
         <Reveal>
-          <div className="lab">03 — The builder</div>
+          <div className="lab">03 — The team</div>
           <h2 className="h2">
             Why Y/B exists<span className="dot">.</span>
           </h2>

@@ -39,7 +39,12 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
         {visible.map((p) => (
           <Link className="proj" href={`/work/${p.slug}`} key={p.slug}>
             <div className="cover">
-              <b>{String(projects.indexOf(p) + 1).padStart(2, "0")}</b>
+              {p.image_url ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img className="cover-img" src={p.image_url} alt={p.title} loading="lazy" />
+              ) : (
+                <b>{String(projects.indexOf(p) + 1).padStart(2, "0")}</b>
+              )}
               <span className="case">View case study →</span>
             </div>
             <div className="pmeta">

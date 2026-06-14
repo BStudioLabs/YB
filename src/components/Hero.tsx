@@ -11,13 +11,13 @@ const FRAMES = 26;
 
 /** Decode-style text scramble. Returns the animated string + done flag. */
 function useScramble(finalText: string, delay: number) {
-  const [text, setText] = useState("");
+  const [state, setState] = useState({ text: "", settled: 0 });
   const [done, setDone] = useState(false);
 
   useEffect(() => {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
       const t = setTimeout(() => {
-        setText(finalText);
+        setState({ text: finalText, settled: finalText.length });
         setDone(true);
       }, 0);
       return () => clearTimeout(t);
@@ -35,10 +35,10 @@ function useScramble(finalText: string, delay: number) {
               ? " "
               : CHARS[(Math.random() * CHARS.length) | 0];
         }
-        setText(out);
+        setState({ text: out, settled });
         if (frame >= FRAMES) {
           clearInterval(interval);
-          setText(finalText);
+          setState({ text: finalText, settled: finalText.length });
           setDone(true);
         }
       }, 42);
@@ -49,7 +49,40 @@ function useScramble(finalText: string, delay: number) {
     };
   }, [finalText, delay]);
 
-  return { text, done };
+  return { text: state.text, settled: state.settled, done };
+}
+
+/**
+ * Renders the scramble so each glitch glyph occupies exactly the width of
+ * its final letter: the real letter reserves the space (invisible) and the
+ * glitch character is overlaid on top, so the line never reflows.
+ */
+function ScrambleText({
+  finalText,
+  text,
+  settled,
+}: {
+  finalText: string;
+  text: string;
+  settled: number;
+}) {
+  if (!text) {
+    return <span style={{ visibility: "hidden" }}>{finalText}</span>;
+  }
+  return (
+    <>
+      {finalText.split("").map((ch, i) =>
+        i < settled || ch === " " ? (
+          ch
+        ) : (
+          <span className="glitch-ch" key={i}>
+            <span className="glitch-ch-w">{ch}</span>
+            <span className="glitch-ch-g">{text[i]}</span>
+          </span>
+        )
+      )}
+    </>
+  );
 }
 
 export default function Hero() {

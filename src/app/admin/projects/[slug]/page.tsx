@@ -19,7 +19,7 @@ export default async function EditProject({
   const { data } = await sb
     .from("projects")
     .select(
-      "slug, title, year, category, tags, summary, problem, solution, stack, results, sort_order, published"
+      "slug, title, year, category, tags, summary, problem, solution, stack, results, image_url, sort_order, published"
     )
     .eq("slug", slug)
     .single();

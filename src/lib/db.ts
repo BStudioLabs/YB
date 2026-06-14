@@ -28,7 +28,7 @@ export async function getProjects(): Promise<Project[]> {
   const { data, error } = await sb
     .from("projects")
     .select(
-      "slug, title, year, category, tags, summary, problem, solution, stack, results"
+      "slug, title, year, category, tags, summary, problem, solution, stack, results, image_url"
     )
     .order("sort_order");
   if (error || !data || data.length === 0) {
